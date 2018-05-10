@@ -1,0 +1,49 @@
+# LinkedList-insert-at-given-position
+// LinkedList-implementation-in-Java
+//single LinkedList-implementation
+ class Node{
+   int data;
+   Node next;
+ }
+  class LinkedList{
+     Node head=null;
+ //to insert a new value at the given position
+     void insert(int data, int n){
+       Node node=new Node();
+        node.data=data;
+        node.next=null;
+       if(n==1){
+        node.next=head;
+        head=node;
+        return;
+        }
+     Node node1=head;
+     for(int i=0;i<n-2;i++){
+         node1=node1.next;
+     }
+     node.next=node1.next;
+     node1.next=node;
+  }
+
+//to print the data by traversing the LinkedList
+   void print(){
+         Node temp=head;
+        while(temp!=null){
+      System.out.print(temp.data);
+      System.out.print(" ");
+       temp=temp.next;
+          }
+      }
+   }
+  public class MyClass{
+    public static void main(String[] args){
+     LinkedList l=new LinkedList();
+     l.insert(1,1);
+     l.insert(2,2);
+     l.insert(3,3);
+      l.insert(4,2);
+      l.insert(5,4);
+      l.print();
+    }
+  }
+  //o/p:-1 4 2 5 3
